@@ -26,6 +26,8 @@ An interactive **Streamlit web app** that predicts **Global and Country GDP** tr
 ## 📂 Project Structure
 ├── main.py # Streamlit app entry point
 
+├── gdp_dataset.csv # Dataset used for training 
+
 ├── requirements.txt # Python dependencies
 
 └── README.md # Project documentation
