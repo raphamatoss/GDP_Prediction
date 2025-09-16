@@ -1,4 +1,5 @@
 # 🌍 Global & Country GDP Prediction Dashboard
+![gdp](https://github.com/user-attachments/assets/df3f47c4-e671-41d1-a67f-fad8831402c7)
 
 An interactive **Streamlit web app** that predicts **Global and Country GDP** trends using **Linear Regression (scikit-learn)**. The project demonstrates how machine learning can be applied to economic data visualization and forecasting.
 [View the dataset used on Kaggle](https://www.kaggle.com/datasets/codebynadiia/gdp-per-country-20202025)
@@ -35,6 +36,8 @@ An interactive **Streamlit web app** that predicts **Global and Country GDP** tr
 ---
 
 ## ▶️ Running the App
+You can run the app locally or open it in the [web](https://gdp-prediction.streamlit.app/).
+
 ```bash
 # Clone the repository
 git clone https://github.com/raphamatoss/GDP_Prediction.git
