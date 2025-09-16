@@ -3,10 +3,7 @@ import numpy as np
 import streamlit as st
 from sklearn import linear_model
 
-with open('path.txt', 'r') as f:
-  path = f.read()
-
-df = pd.read_csv(path)
+df = pd.read_csv('gdp_dataset.csv')
 model = linear_model.LinearRegression()
 
 # Global GDP ------
