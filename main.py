@@ -3,11 +3,17 @@ import numpy as np
 import streamlit as st
 from sklearn import linear_model
 
+def to_trillion(x: float) -> float:
+  return x / 1_000_000
+
 df = pd.read_csv('gdp_dataset.csv')
 model = linear_model.LinearRegression()
 
 # Global GDP ------
 columns = df.columns.values[1:]
+print(columns)
+df[columns] = df[columns].apply(to_trillion) # converts the values to trillions of dollars
+df[columns] = df[columns].ffill(axis = 1) # replaces the NaN values with the last available value
 x = np.array([int(column) for column in columns]).reshape(-1, 1)
 y = np.array([df[column].mean() for column in columns])
 
@@ -50,11 +56,11 @@ st.divider()
 
 st.write("""Predicted GDP of certain countries and the Global mean. The values between [2020, 2025] are actually the real
          values used for training the model.""")
-st.line_chart(predictions)
+st.line_chart(predictions, x_label="Year", y_label="GDP in trillions of dollars")
 st.divider()
 
 st.write('Visualize the GDP of a specific country:')
 country = st.selectbox('Select a country', countries_list, index=10)
 if country:
   country_prediction = predict_country_gpd(country)
-  st.line_chart(pd.DataFrame({'GDP': country_prediction, 'Year': available_years}).set_index('Year'))
+  st.line_chart(pd.DataFrame({'GDP': country_prediction, 'Year': available_years}).set_index('Year'), x_label="Year", y_label="GDP in trillions of dollars")
